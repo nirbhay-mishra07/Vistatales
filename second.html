@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nirbhay – Journey Beyond</title>
+  <style>
+    /* Reset + Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f0e6d2; /* warm sand tone */
+      color: #2d2d2d;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(24, 45, 36, 0.85); /* deep forest green with transparency */
+      backdrop-filter: blur(6px);
+      color: #fff;
+      z-index: 1000;
+      padding: 12px 0;
+      transition: background 0.3s ease;
+    }
+
+    nav {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav h1 {
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      color: #f5c76d; /* amber accent */
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #f5c76d;
+    }
+
+    /* Hero Section */
+    #hero {
+      height: 100vh;
+      width: 100%;
+      background: linear-gradient(
+          rgba(0, 0, 0, 0.45),
+          rgba(0, 0, 0, 0.6)
+        ),
+        url("hawa mahal.jpg") center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      color: #fff;
+      padding: 0 10%;
+      text-align: left;
+    }
+
+    #hero h2 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      max-width: 700px;
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    #hero p {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      max-width: 550px;
+      color: #e6e6e6;
+      animation: fadeInUp 1.3s ease-out forwards;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 28px;
+      background-color: #f5c76d; /* amber gold */
+      color: #1f1f1f;
+      font-weight: 600;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s ease;
+      animation: fadeInUp 1.6s ease-out forwards;
+    }
+
+    .btn:hover {
+      background-color: #ffde91;
+      color: #000;
+    }
+
+    /* Section Styles */
+    section {
+      width: 100%;
+      padding: 100px 10%;
+      background: #faf6ec; /* muted parchment beige */
+    }
+
+    section:nth-of-type(even) {
+      background: #f3ebd8; /* slightly darker sand tone */
+    }
+
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #1f3c2e; /* deep forest green */
+    }
+
+    /* Gallery */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .gallery-item {
+      background: #fffdf7;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      width: 320px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .gallery-item p {
+      padding: 15px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #1f3c2e;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* About */
+    #about p {
+      max-width: 800px;
+      font-size: 1.1rem;
+      color: #2d2d2d;
+    }
+
+    /* Contact */
+    form {
+      margin-top: 30px;
+      max-width: 500px;
+    }
+
+    form input,
+    form button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    form button {
+      background-color: #1f3c2e;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #f5c76d;
+      color: #000;
+    }
+
+    /* Footer */
+    footer {
+      background: #1f3c2e;
+      color: #ddd;
+      text-align: center;
+      padding: 30px 10%;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: #f5c76d;
+      text-decoration: none;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #hero h2 {
+        font-size: 2.4rem;
+      }
+      nav ul {
+        gap: 15px;
+      }
+      .gallery-item {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <h1>VistaTales</h1>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <h2>Begin the Journey<br>of the Unseen.</h2>
+    <p>Your next adventure awaits where the map ends and the unknown begins.</p>
+    <a href="#blog" class="btn">Explore More</a>
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blog">
+    <h3>Featured Journeys</h3>
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="Ladhak.jpg" alt="Ladakh Adventure">
+        <p>🏔️ Discover Ladakh</p>
+      </div>
+      <div class="gallery-item">
+        <img src="Bali.jpg" alt="Bali Experience">
+        <p>🌊 Serenity in Bali</p>
+      </div>
+      <div class="gallery-item">
+        <img src="himachal.jpg" alt="Himachal Beauty">
+        <p>⛰️ Explore Himachal</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h3>About Me</h3>
+    <p>Hey, I’m Nirbhay — a travel enthusiast, explorer, and storyteller.  
+       This space is my collection of adventures, hidden corners, and real stories from the road.  
+       Every journey here reflects curiosity, courage, and the joy of discovering the unknown.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h3>Get in Touch</h3>
+    <form>
+      <input type="text" placeholder="Full Name" required>
+      <input type="tel" placeholder="Contact Number" required>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Nirbhay's Travel Journal | <a href="https://linkedin.com" target="_blank">Connect</a></p>
+  </footer>
+
+</body>
+</html>
